@@ -1,0 +1,22 @@
+{
+  "name": "covid19",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThePubDoc/covid19.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThePubDoc/covid19/issues"
+  },
+  "homepage": "https://github.com/ThePubDoc/covid19#readme",
+  "dependencies": {
+    "tabulator-tables": "^4.6.2"
+  }
+}
