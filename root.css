@@ -1,0 +1,17 @@
+@font-face {
+	font-family: light;
+	src: url(./fonts/JosefinSans-Light.ttf);
+}
+
+@font-face {
+	font-family: bold;
+	src: url(./fonts/JosefinSans-Bold.ttf);
+}
+
+h1,h2,h3 {
+	font-family: bold;
+}
+
+p,a {
+	font-family: light;
+}

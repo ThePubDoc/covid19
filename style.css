@@ -1,0 +1,82 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+    padding: 2rem;
+}
+
+nav h1 {
+    font-size: x-large;
+    color: white;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 15% 85%;
+}
+
+.hero .side-menu {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: rgba(94, 92, 92, 0.459);
+}
+
+.hero .side-menu ul li {
+    margin: 2rem 0;
+}
+
+.hero .side-menu ul li a {
+    color: white;
+    font-family: bold;
+    font-size: x-large;
+}
+
+.hero .hero-data {
+    padding: 2rem 10rem;
+}
+
+.hero .hero-data .table-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.hero .hero-data .table-head h1 {
+    font-size: x-large;
+}
+
+.hero .hero-data .table-head input {
+    border: none;
+    border-bottom: 1px solid black;
+    font-family: light;
+}
+
+.tabulator-header .tabulator-headers .tabulator-col {
+    padding: .5rem;
+    font-family: light;
+    color: black;
+    font-weight: bold;
+}
+
+.tabulator-header .tabulator-headers .tabulator-col .tabulator-col-content {
+    font-family: bold;
+    font-size: large;
+}
+
+.tabulator-row .tabulator-cell{
+    padding: 1rem;
+    border-bottom: 1px solid black;
+    font-family: light;
+    color: black;
+    font-weight: bold;
+    height: 3rem;
+}
+
+.tabulator-footer .tabulator-paginator .tabulator-page{
+    font-family: light;
+}
