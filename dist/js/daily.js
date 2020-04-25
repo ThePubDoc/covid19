@@ -23,7 +23,7 @@ const dailyReport = (async () => {
 
     Chart.defaults.global.defaultFontFamily = "Lato";
     Chart.defaults.global.defaultFontSize = 18;
-    Chart.defaults.global.responsive = true;
+    
     var confirmed = {
         label: "Confirmed",
         data: dailyConfirm,
@@ -59,7 +59,8 @@ const dailyReport = (async () => {
         position: 'top',
         labels: {
         boxWidth: 80,
-        fontColor: 'black'
+        fontColor: 'black',
+        fontFamily: 'bold'
         }
     }
     };
