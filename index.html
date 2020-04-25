@@ -3,22 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://unpkg.com/tabulator-tables@4.3.0/dist/css/tabulator.min.css" rel="stylesheet">
     <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.3.0/dist/js/tabulator.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <link href="https://unpkg.com/tabulator-tables@4.3.0/dist/css/tabulator.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="root.css">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
     <nav>
-
+        <h1>Covid-19 Stats</h1>
     </nav>
 
-    <canvas id="speedChart"></canvas>
+    <div class="hero">
+        <div class="side-menu">
+            <ul>
+                <li>
+                    <a href="">Home</a>
+                </li>
+                <li>
+                    <a href="">India</a>
+                </li>
+            </ul>
+        </div>
+        <div class="hero-data">
+            <canvas id="speedChart"></canvas>
 
-    <input type="text" class="filter" id="filter">
-
-    <div id="example-table"></div>
+            <div class="table-head">
+                <h1>Country Wise Stats</h1>
+                <input type="text" class="filter" id="filter" placeholder="Search For Country">
+            </div>
+        
+            <div id="example-table"></div>
+        </div>
+    </div>
+    
 
     <script src="./daily.js"></script>
     <script src="./fetch.js">    </script>

@@ -7,21 +7,22 @@ const dailyReport = (async () => {
     const ar = await response.json();
     const obj = ar.result;
     const dates = Object.keys(obj)
-    // console.log(dates[0])
-
+   
     let dailyConfirm = [];
+    let dailyDeaths = [];
     let i =0;
     for(date in obj){
-        dailyConfirm[i] = obj[date].confirmed
+        dailyConfirm[i] = obj[date].confirmed;
+        dailyDeaths[i] = obj[date].deaths;
         i++;
     }
-    console.log(dailyConfirm)
+    
     var speedCanvas = document.getElementById("speedChart");
 
     Chart.defaults.global.defaultFontFamily = "Lato";
     Chart.defaults.global.defaultFontSize = 18;
     Chart.defaults.global.responsive = true;
-    var dataFirst = {
+    var confirmed = {
         label: "Confirmed",
         data: dailyConfirm,
         lineTension: 0,
@@ -29,9 +30,17 @@ const dailyReport = (async () => {
         borderColor: 'red'
     };
 
-    var speedData = {
+    var deaths = {
+        label: "Deaths",
+        data: dailyDeaths,
+        lineTension: 0,
+        fill: false,
+        borderColor: 'blue'
+    };
+
+    var confirmedData = {
     labels: dates,
-    datasets: [dataFirst]
+    datasets: [confirmed, deaths]
     };
 
     var chartOptions = {
@@ -47,7 +56,7 @@ const dailyReport = (async () => {
 
     var lineChart = new Chart(speedCanvas, {
     type: 'line',
-    data: speedData,
+    data: confirmedData,
     options: chartOptions
     });
 })
