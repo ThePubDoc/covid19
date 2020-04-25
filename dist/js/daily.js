@@ -10,10 +10,12 @@ const dailyReport = (async () => {
    
     let dailyConfirm = [];
     let dailyDeaths = [];
+    let dailyCured = [];
     let i =0;
     for(date in obj){
         dailyConfirm[i] = obj[date].confirmed;
         dailyDeaths[i] = obj[date].deaths;
+        dailyCured[i] = obj[date].recovered;
         i++;
     }
     
@@ -38,9 +40,17 @@ const dailyReport = (async () => {
         borderColor: 'blue'
     };
 
+    var cured = {
+        label: "Cured",
+        data: dailyCured,
+        lineTension: 0,
+        fill: false,
+        borderColor: 'yellow'
+    }
+
     var confirmedData = {
     labels: dates,
-    datasets: [confirmed, deaths]
+    datasets: [confirmed, deaths, cured]
     };
 
     var chartOptions = {
