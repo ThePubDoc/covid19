@@ -7,28 +7,22 @@ nav {
     padding: 2rem;
 }
 
-nav h1 {
+nav a {
     font-size: x-large;
     color: white;
+    font-family: bold;
 }
 
-.hero {
-    display: grid;
-    grid-template-columns: 15% 85%;
-}
-
-.hero .side-menu {
+nav .menu ul{
     display: flex;
-    flex-direction: column;
-    padding: 2rem;
-    background-color: rgba(94, 92, 92, 0.459);
+    flex-direction: row;
 }
 
-.hero .side-menu ul li {
-    margin: 2rem 0;
+nav .menu ul li {
+    margin: 0 2rem;
 }
 
-.hero .side-menu ul li a {
+nav .menu ul li a {
     color: white;
     font-family: bold;
     font-size: x-large;
