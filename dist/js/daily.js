@@ -7,7 +7,7 @@ const dailyReport = (async () => {
     const ar = await response.json();
     const obj = ar.result;
     const dates = Object.keys(obj)
-   
+
     let dailyConfirm = [];
     let dailyDeaths = [];
     let dailyCured = [];
@@ -19,7 +19,7 @@ const dailyReport = (async () => {
         i++;
     }
     
-    var speedCanvas = document.getElementById("speedChart");
+    var speedCanvas = document.getElementById("world-speedChart");
 
     Chart.defaults.global.defaultFontFamily = "Lato";
     Chart.defaults.global.defaultFontSize = 18;
@@ -69,6 +69,19 @@ const dailyReport = (async () => {
     data: confirmedData,
     options: chartOptions
     });
+
+    const latestTotalConfirmed = dailyConfirm[dailyConfirm.length-1];
+    const latestTotalDeath = dailyDeaths[dailyDeaths.length-1];
+    const latestTotalCured = dailyCured[dailyCured.length-1];
+    const lastDate = dates[dates.length-1];
+    const newCases = dailyConfirm[dailyConfirm.length-1]-dailyConfirm[dailyConfirm.length-2];
+    document.getElementById("totalCases").innerHTML = latestTotalConfirmed;
+    document.getElementById("totalRecovered").innerHTML = latestTotalCured;
+    document.getElementById("totalDeaths").innerHTML = latestTotalDeath;
+    document.getElementById("newCases").innerHTML = newCases;
+    document.getElementById("lastUpdate").innerHTML = lastDate;
+    // let newDate = new Date(lastDate)
+    // console.log(newDate.get)
 })
 
 dailyReport()

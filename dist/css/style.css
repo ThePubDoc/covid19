@@ -28,9 +28,38 @@ nav .menu ul li a {
     font-size: x-large;
 }
 
+nav .menu ul li p {
+    color: white;
+    font-family: bold;
+    font-size: x-large;
+}
+
 .hero .hero-data {
     padding: 2rem 10rem;
 }
+
+.hero .cards-hero {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1rem 10rem;
+}
+
+.hero .cards-hero .card {
+    border: 1px solid rgba(0, 0, 0, 0.144);
+    padding: 2rem 4rem 2rem 1rem;
+    margin: 1rem;
+    text-align: left;
+    width: 12rem;
+}
+
+.hero .cards-hero .card p {
+    margin-top: 1rem ;
+    font-size: x-large;
+    font-family: bold;
+}
+
+
 
 .hero .hero-data .table-head {
     display: flex;
@@ -73,4 +102,8 @@ nav .menu ul li a {
 
 .tabulator-footer .tabulator-paginator .tabulator-page{
     font-family: light;
+}
+
+.india-chart {
+    display: none;
 }
