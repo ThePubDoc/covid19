@@ -29,7 +29,6 @@ const get = (async()=> {
 
 const updateFilter = (() => {
     let value = document.getElementById("filter").value;
-    console.log(value)
     table.setFilter("country", "like" , value)
 })
 

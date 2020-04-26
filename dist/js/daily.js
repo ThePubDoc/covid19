@@ -19,7 +19,7 @@ const dailyReport = (async () => {
         i++;
     }
     
-    var speedCanvas = document.getElementById("world-speedChart");
+    var speedCanvas = document.getElementById("speedChart");
 
     Chart.defaults.global.defaultFontFamily = "Lato";
     Chart.defaults.global.defaultFontSize = 18;
@@ -80,8 +80,7 @@ const dailyReport = (async () => {
     document.getElementById("totalDeaths").innerHTML = latestTotalDeath;
     document.getElementById("newCases").innerHTML = newCases;
     document.getElementById("lastUpdate").innerHTML = lastDate;
-    // let newDate = new Date(lastDate)
-    // console.log(newDate.get)
+
 })
 
 dailyReport()

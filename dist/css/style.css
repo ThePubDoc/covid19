@@ -26,12 +26,14 @@ nav .menu ul li a {
     color: white;
     font-family: bold;
     font-size: x-large;
+    cursor: pointer;
 }
 
 nav .menu ul li p {
     color: white;
     font-family: bold;
     font-size: x-large;
+    cursor: pointer;
 }
 
 .hero .hero-data {
