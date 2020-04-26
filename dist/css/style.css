@@ -7,35 +7,58 @@ nav {
     padding: 2rem;
 }
 
-nav h1 {
+nav a {
     font-size: x-large;
     color: white;
+    font-family: bold;
 }
 
-.hero {
-    display: grid;
-    grid-template-columns: 15% 85%;
-}
-
-.hero .side-menu {
+nav .menu ul{
     display: flex;
-    flex-direction: column;
-    padding: 2rem;
-    background-color: rgba(94, 92, 92, 0.459);
+    flex-direction: row;
 }
 
-.hero .side-menu ul li {
-    margin: 2rem 0;
+nav .menu ul li {
+    margin: 0 2rem;
 }
 
-.hero .side-menu ul li a {
+nav .menu ul li a {
     color: white;
     font-family: bold;
     font-size: x-large;
+    cursor: pointer;
+}
+
+nav .menu ul li p {
+    color: white;
+    font-family: bold;
+    font-size: x-large;
+    cursor: pointer;
 }
 
 .hero .hero-data {
     padding: 2rem 10rem;
+}
+
+.hero .cards-hero {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1rem 10rem;
+}
+
+.hero .cards-hero .card {
+    border: 1px solid rgba(0, 0, 0, 0.144);
+    padding: 2rem 4rem 2rem 1rem;
+    margin: 1rem;
+    text-align: left;
+    width: 12rem;
+}
+
+.hero .cards-hero .card p {
+    margin-top: 1rem ;
+    font-size: x-large;
+    font-family: bold;
 }
 
 .hero .hero-data .table-head {
@@ -54,6 +77,10 @@ nav h1 {
     border: none;
     border-bottom: 1px solid black;
     font-family: light;
+}
+
+.hero .hero-data .table-head #filter-state {
+    display: none;
 }
 
 .tabulator-header .tabulator-headers .tabulator-col {
@@ -79,4 +106,8 @@ nav h1 {
 
 .tabulator-footer .tabulator-paginator .tabulator-page{
     font-family: light;
+}
+
+.india-chart {
+    display: none;
 }
