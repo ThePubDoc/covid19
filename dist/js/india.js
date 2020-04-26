@@ -1,21 +1,29 @@
-const dailyReport = (async () => {
-    var response = await fetch("https://covidapi.info/api/v1/global/count", {
+const india = (async () => {
+    
+    const today = new Date(Date.now());
+    const latestDate = today.getFullYear()+"-"+(today.getMonth()+1)+"-"+today.getDate();
+
+    const url = "https://covidapi.info/api/v1/country/IND/timeseries/2020-01-22/" + latestDate;
+    
+    
+    var response = await fetch(url, {
         "method": "GET",
         "redirect": 'follow'
         }
     )
     const ar = await response.json();
     const obj = ar.result;
-    const dates = Object.keys(obj)
 
     let dailyConfirm = [];
     let dailyDeaths = [];
     let dailyCured = [];
+    let dates = [];
     let i =0;
-    for(date in obj){
-        dailyConfirm[i] = obj[date].confirmed;
-        dailyDeaths[i] = obj[date].deaths;
-        dailyCured[i] = obj[date].recovered;
+    for(index in obj){
+        dailyConfirm[i] = obj[index].confirmed;
+        dailyDeaths[i] = obj[index].deaths;
+        dailyCured[i] = obj[index].recovered;
+        dates[i] = obj[index].date;
         i++;
     }
     
@@ -80,8 +88,7 @@ const dailyReport = (async () => {
     document.getElementById("totalDeaths").innerHTML = latestTotalDeath;
     document.getElementById("newCases").innerHTML = newCases;
     document.getElementById("lastUpdate").innerHTML = lastDate;
-
+    
 })
 
-dailyReport()
 

@@ -6,10 +6,8 @@ const get = (async()=> {
     )
     
     const ar = await response.json();
-    // ar.sort( compare );
-    // console.log(ar[0])
     
-    table = new Tabulator("#example-table", {
+    table = new Tabulator("#all-country-table", {
         data:ar,
         layout:"fitColumns",
         pagination:"local",
@@ -31,7 +29,6 @@ const get = (async()=> {
 
 const updateFilter = (() => {
     let value = document.getElementById("filter").value;
-    console.log(value)
     table.setFilter("country", "like" , value)
 })
 

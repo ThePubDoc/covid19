@@ -21,27 +21,50 @@
                     <a href="">Home</a>
                 </li>
                 <li>
-                    <a href="">India</a>
+                    <p onclick="india()">India</p>
                 </li>
             </ul>
         </div>
     </nav>
 
     <div class="hero">
+        <div class="cards-hero">
+            <div class="card">
+                <h2>Total Confirmed Cases</h2>
+                <p id="totalCases"></p>
+            </div>
+            <div class="card">
+                <h2>Total Recovered</h2>
+                <p id="totalRecovered"></p>
+            </div>
+            <div class="card">
+                <h2>Total Deaths</h2>
+                <p id="totalDeaths"></p>
+            </div>
+            <div class="card">
+                <h2>New Cases</h2>
+                <p id="newCases"></p>
+            </div>
+            <div class="card">
+                <h2>Last Updated On</h2>
+                <p id="lastUpdate"></p>
+            </div>
+        </div>
         <div class="hero-data">
             <canvas id="speedChart"></canvas>
+            
 
             <div class="table-head">
                 <h1>Country Wise Stats</h1>
                 <input type="text" class="filter" id="filter" placeholder="Search For Country">
             </div>
         
-            <div id="example-table"></div>
+            <div id="all-country-table"></div>
         </div>
     </div>
 
     <script src="./dist/js/daily.js"></script>
-    <script src="./dist/js/fetch.js">    </script>
-
+    <script src="./dist/js/fetch.js"></script>
+    <script src="./dist/js/india.js"></script>
 </body>
 </html>
