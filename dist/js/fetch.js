@@ -6,7 +6,7 @@ const get = (async()=> {
     )
     
     const ar = await response.json();
-    
+    // console.log(ar[0])
     table = new Tabulator("#all-country-table", {
         data:ar,
         layout:"fitColumns",
@@ -28,11 +28,11 @@ const get = (async()=> {
 })
 
 const updateFilter = (() => {
-    let value = document.getElementById("filter").value;
+    let value = document.getElementById("filter-country").value;
     table.setFilter("country", "like" , value)
 })
 
 get();
-document.getElementById("filter").addEventListener("keyup", updateFilter);
+document.getElementById("filter-country").addEventListener("keyup", updateFilter);
 
 

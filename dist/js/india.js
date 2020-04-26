@@ -1,5 +1,7 @@
 const india = (async () => {
     
+    document.getElementById("filter-state").style.display = "block";
+    document.getElementById("filter-country").style.display = "none";
     const today = new Date(Date.now());
     const latestDate = today.getFullYear()+"-"+(today.getMonth()+1)+"-"+today.getDate();
 
@@ -88,7 +90,53 @@ const india = (async () => {
     document.getElementById("totalDeaths").innerHTML = latestTotalDeath;
     document.getElementById("newCases").innerHTML = newCases;
     document.getElementById("lastUpdate").innerHTML = lastDate;
-    
+    statesData();
 })
 
+const statesData = (async () => {
+    const states = await fetch("https://corona-virus-world-and-india-data.p.rapidapi.com/api_india", {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "corona-virus-world-and-india-data.p.rapidapi.com",
+            "x-rapidapi-key": "b43507d905msh5e02a61f003cd71p1fe870jsn56d2fe565361"
+        }
+    })
+    
+    const json = await states.json();
+    const json_state = json.state_wise;
+    const keys = Object.keys(json_state);
+    // console.log(json_state)
+    let ar = [];
+    for(key in json_state){
+        ar.push({
+            "state" : key,
+            "confirmed" : json_state[key].confirmed,
+            "recovered" : json_state[key].recovered,
+            "deaths" : json_state[key].deaths
+        })
+    }
+    console.log(ar)
+    table = new Tabulator("#all-country-table", {
+        data:ar,
+        layout:"fitColumns",
+        pagination:"local",
+        paginationSize:10,
+        responsiveLayout:"hide",
+        initialSort:[
+            {column:"confirmed", dir:"dsc"},
+        ],
+        columns:[
+            {title:"State",field:"state"},
+            {title:"Confirmed", field:"confirmed"},
+            {title:"Recovered",field:"recovered"},
+            {title:"Deaths",field:"deaths"},
+            // {title:"Critical",field:"critical"},            
+        ],
+    });
+    // document.getElementById("filter")
+})
 
+const updateStateFilter = (() => {
+    let value = document.getElementById("filter-state").value;
+    table.setFilter("state", "like" , value)
+})
