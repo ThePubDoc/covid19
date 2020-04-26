@@ -36,6 +36,11 @@ nav .menu ul li p {
     cursor: pointer;
 }
 
+span {
+    float: right;
+    margin: 1rem;
+}
+
 .hero .hero-data {
     padding: 2rem 10rem;
 }
