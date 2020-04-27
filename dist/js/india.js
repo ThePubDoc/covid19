@@ -88,6 +88,7 @@ const india = (async () => {
     document.getElementById("totalDeaths").innerHTML = latestTotalDeath;
     document.getElementById("newCases").innerHTML = newCases;
     document.getElementById("lastUpdate").innerHTML = lastDate;
+    document.getElementById("stats").innerHTML = "State Wise Stats"
     statesData();
 })
 
