@@ -4,10 +4,8 @@ const india = (async () => {
     document.getElementById("filter-country").style.display = "none";
     const today = new Date(Date.now());
     const latestDate = today.getFullYear()+"-"+(today.getMonth()+1)+"-"+today.getDate();
-
-    const url = "https://covidapi.info/api/v1/country/IND/timeseries/2020-01-22/" + latestDate;
     
-    
+    const url = "https://covidapi.info/api/v1/country/IND";
     var response = await fetch(url, {
         "method": "GET",
         "redirect": 'follow'
@@ -25,7 +23,7 @@ const india = (async () => {
         dailyConfirm[i] = obj[index].confirmed;
         dailyDeaths[i] = obj[index].deaths;
         dailyCured[i] = obj[index].recovered;
-        dates[i] = obj[index].date;
+        dates[i] = index;
         i++;
     }
     
@@ -115,7 +113,7 @@ const statesData = (async () => {
             "deaths" : json_state[key].deaths
         })
     }
-    console.log(ar)
+    // console.log(ar)
     table = new Tabulator("#all-country-table", {
         data:ar,
         layout:"fitColumns",
