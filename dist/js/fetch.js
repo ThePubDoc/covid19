@@ -60,10 +60,6 @@ const updateFilter = (() => {
     table.setFilter("country", "like" , value)
 })
 
-const row = ( (e,row) => {
-    console.log(row._row.data)
-})
-
 const dailyReport = (async () => {
     const response = await fetch("https://covidapi.info/api/v1/global/count", {
         "method": "GET",
@@ -87,7 +83,7 @@ const dailyReport = (async () => {
     
     let speedCanvas = document.getElementById("speedChart");
 
-    Chart.defaults.global.defaultFontFamily = "Lato";
+    Chart.defaults.global.defaultFontFamily = "bold";
     Chart.defaults.global.defaultFontSize = 18;
     Chart.defaults.global.responsive = true;
     let confirmed = {
@@ -139,6 +135,97 @@ const dailyReport = (async () => {
     const latestTotalConfirmed = dailyConfirm[dailyConfirm.length-1];
     const latestTotalDeath = dailyDeaths[dailyDeaths.length-1];
     const latestTotalCured = dailyCured[dailyCured.length-1];
+    const lastDate = dates[dates.length-1];
+    const newCases = dailyConfirm[dailyConfirm.length-1]-dailyConfirm[dailyConfirm.length-2];
+    document.getElementById("totalCases").innerHTML = latestTotalConfirmed;
+    document.getElementById("totalRecovered").innerHTML = latestTotalCured;
+    document.getElementById("totalDeaths").innerHTML = latestTotalDeath;
+    document.getElementById("newCases").innerHTML = newCases;
+    document.getElementById("lastUpdate").innerHTML = lastDate;
+
+})
+
+const row = ( async (e,row) => {
+    const code = row._row.data.alpha3code;
+    let url = "https://covidapi.info/api/v1/country/" + code;
+    const countryData = await fetch(url , {
+        "method" : "GET"
+    })
+    const countryDataJSON = await countryData.json();
+    const obj = countryDataJSON.result;
+    const dates = Object.keys(obj)
+
+    let dailyConfirm = [];
+    let dailyDeaths = [];
+    let dailyCured = [];
+    let i =0;
+    for(date in obj){
+        dailyConfirm[i] = obj[date].confirmed;
+        dailyDeaths[i] = obj[date].deaths;
+        dailyCured[i] = obj[date].recovered;
+        i++;
+    }
+
+    let speedCanvas = document.getElementById("speedChart");
+
+    Chart.defaults.global.defaultFontFamily = "bold";
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.responsive = true;
+    let confirmed = {
+        label: "Confirmed",
+        data: dailyConfirm,
+        lineTension: 0,
+        fill: false,
+        borderColor: 'red'
+    };
+
+    let deaths = {
+        label: "Deaths",
+        data: dailyDeaths,
+        lineTension: 0,
+        fill: false,
+        borderColor: 'blue'
+    };
+
+    let cured = {
+        label: "Cured",
+        data: dailyCured,
+        lineTension: 0,
+        fill: false,
+        borderColor: 'yellow'
+    }
+
+    let confirmedData = {
+    labels: dates,
+    datasets: [confirmed, deaths, cured]
+    };
+
+    let chartOptions = {
+    legend: {
+        display: true,
+        position: 'top',
+        labels: {
+        boxWidth: 80,
+        fontColor: 'black'
+        }
+    }
+    };
+
+    let lineChart = new Chart(speedCanvas, {
+    type: 'line',
+    data: confirmedData,
+    options: chartOptions
+    });
+
+    url = "https://covid19-api.com/country/code?code="+code+"&format=json";
+    const latestDataCountry = await fetch(url, {
+        "method" : "GET"
+    })
+    const latestDataCountryJSON = await latestDataCountry.json();
+    // console.log(latestDataCountryJSON[0])
+    const latestTotalConfirmed = latestDataCountryJSON[0].confirmed;
+    const latestTotalDeath = latestDataCountryJSON[0].deaths;
+    const latestTotalCured = latestDataCountryJSON[0].recovered;
     const lastDate = dates[dates.length-1];
     const newCases = dailyConfirm[dailyConfirm.length-1]-dailyConfirm[dailyConfirm.length-2];
     document.getElementById("totalCases").innerHTML = latestTotalConfirmed;
