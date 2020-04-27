@@ -29,7 +29,7 @@ const india = (async () => {
     
     var speedCanvas = document.getElementById("speedChart");
 
-    Chart.defaults.global.defaultFontFamily = "Lato";
+    Chart.defaults.global.defaultFontFamily = "bold";
     Chart.defaults.global.defaultFontSize = 18;
     Chart.defaults.global.responsive = true;
     var confirmed = {
@@ -88,6 +88,7 @@ const india = (async () => {
     document.getElementById("totalDeaths").innerHTML = latestTotalDeath;
     document.getElementById("newCases").innerHTML = newCases;
     document.getElementById("lastUpdate").innerHTML = lastDate;
+    document.getElementById("stats").innerHTML = "State Wise Stats"
     statesData();
 })
 
