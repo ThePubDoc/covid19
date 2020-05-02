@@ -16,7 +16,7 @@
 </head>
 <body>
     <nav>
-        <a href="/covid19">Covid-19 Stats</a>
+        <a href="/index.html">Covid-19 Stats</a>
         <div class="menu">
             <ul>
                 <li>
@@ -27,36 +27,9 @@
                 </li>
             </ul>
         </div>
-        
     </nav>
 
     <div class="hero">
-        
-        <!-- Place this tag where you want the button to render. -->
-        <a class="github-button" href="https://github.com/thepubdoc/covid19" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" aria-label="Star thepubdoc/covid19 on GitHub">Star</a>
-
-        <div class="cards-hero">
-            <div class="card">
-                <h2>Total Confirmed Cases</h2>
-                <p id="totalCases"></p>
-            </div>
-            <div class="card">
-                <h2>Total Recovered</h2>
-                <p id="totalRecovered"></p>
-            </div>
-            <div class="card">
-                <h2>Total Deaths</h2>
-                <p id="totalDeaths"></p>
-            </div>
-            <div class="card">
-                <h2>New Cases</h2>
-                <p id="newCases"></p>
-            </div>
-            <div class="card">
-                <h2>Last Updated On</h2>
-                <p id="lastUpdate"></p>
-            </div>
-        </div>
         <div class="hero-data">
             <canvas id="speedChart"></canvas>
             
@@ -70,6 +43,9 @@
             <div id="all-country-table"></div>
         </div>
     </div>
+
+    <script src="./dist/js/daily.js"></script>
+    <script src="./dist/js/fetch.js">    </script>
 
     
     <script src="./dist/js/fetch.js"></script>

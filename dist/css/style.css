@@ -16,6 +16,7 @@ nav a {
 nav .menu ul{
     display: flex;
     flex-direction: row;
+<<<<<<< HEAD
 }
 
 nav .menu ul li {
@@ -30,6 +31,15 @@ nav .menu ul li a {
 }
 
 nav .menu ul li p {
+=======
+}
+
+nav .menu ul li {
+    margin: 0 2rem;
+}
+
+nav .menu ul li a {
+>>>>>>> 8126792449dfdf9cb28d11efdf58c4cd394b1e9b
     color: white;
     font-family: bold;
     font-size: x-large;

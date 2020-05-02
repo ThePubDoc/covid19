@@ -18,6 +18,10 @@
   "homepage": "https://github.com/ThePubDoc/covid19#readme",
   "dependencies": {
     "chart.js": "^2.9.3",
+<<<<<<< HEAD
+=======
+    "d3": "^5.16.0",
+>>>>>>> 8126792449dfdf9cb28d11efdf58c4cd394b1e9b
     "datamaps": "^0.5.9",
     "tabulator-tables": "^4.6.2"
   }
