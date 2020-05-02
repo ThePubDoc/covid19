@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+    <script src="https://datamaps.github.io/scripts/datamaps.world.min.js"></script>
+    
+
+</head>
+<body>
+    <div id="container" style="position: relative; width: 500px; height: 300px;"></div>
+    <script>
+        var map = new Datamap({
+            element: document.getElementById('container'),
+            scope: 'world',
+            geographyConfig: {
+                popupOnHover: true,
+                highlightOnHover: true
+            },
+            fills: {
+                'USA': '#1f77b4',
+                'RUS': '#9467bd',
+                'PRK': '#ff7f0e',
+                'PRC': '#2ca02c',
+                'IND': '#e377c2',
+                'GBR': '#8c564b',
+                'FRA': '#d62728',
+                'PAK': '#7f7f7f',
+                defaultFill: '#EDDC4E'
+            },
+            data: {
+                'RUS': {fillKey: 'RUS'},
+                'PRK': {fillKey: 'PRK'},
+                'PRC': {fillKey: 'PRC'},
+                'IND': {fillKey: 'IND'},
+                'GBR': {fillKey: 'GBR'},
+                'FRA': {fillKey: 'FRA'},
+                'PAK': {fillKey: 'PAK'},
+                'USA': {fillKey: 'USA'}
+            }
+        });
+    </script>
+    
+</body>
+</html>
