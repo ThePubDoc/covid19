@@ -1,11 +1,6 @@
 let table;
 const get = (async()=> {
-    // var response = await fetch("https://covid19-api.com/country/all?format=json", {
-    //     "method": "GET"
-    // })
-    // const ar = await response.json();
-
-    //new change
+    
     const countriesData = await fetch("https://covid-19-data.p.rapidapi.com/help/countries?format=json", {
         "method": "GET",
         "headers": {
@@ -222,7 +217,7 @@ const row = ( async (e,row) => {
         "method" : "GET"
     })
     const latestDataCountryJSON = await latestDataCountry.json();
-    // console.log(latestDataCountryJSON[0])
+
     const latestTotalConfirmed = latestDataCountryJSON[0].confirmed;
     const latestTotalDeath = latestDataCountryJSON[0].deaths;
     const latestTotalCured = latestDataCountryJSON[0].recovered;
