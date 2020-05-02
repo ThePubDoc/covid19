@@ -50,6 +50,7 @@ span {
     flex-direction: row;
     flex-wrap: wrap;
     padding: 1rem 10rem;
+    justify-content: center;
 }
 
 .hero .cards-hero .card {
